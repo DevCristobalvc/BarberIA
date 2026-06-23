@@ -1,8 +1,9 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Instanciación lazy — evita error en build cuando OPENAI_API_KEY no está disponible
+function getOpenAI() {
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
 
 const SYSTEM_PROMPT = `Eres SofIA, la asistente virtual de BarberIA Demo. Gestionas las citas de la barbería de forma natural y eficiente, como lo haría una secretaria real.
 
@@ -39,8 +40,11 @@ INSTRUCCIONES:
 - Usa emojis moderadamente: ✂️ 📅 ✅ 💈
 - NO menciones que eres IA ni que esto es una demo`;
 
+export const runtime = "nodejs";
+
 export async function POST(req: Request) {
   const { messages } = await req.json();
+  const openai = getOpenAI();
 
   const stream = await openai.chat.completions.create({
     model: "gpt-4o-mini",
