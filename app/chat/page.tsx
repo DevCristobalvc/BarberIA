@@ -187,7 +187,7 @@ export default function ChatPage() {
               onKeyDown={handleKeyDown}
               placeholder="Escribe un mensaje..."
               rows={1}
-              className="flex-1 bg-transparent text-sm text-[#F5F5F5] placeholder:text-[#444444] resize-none focus:outline-none max-h-28 leading-relaxed py-1"
+              className="flex-1 bg-transparent text-base text-[#F5F5F5] placeholder:text-[#555555] resize-none focus:outline-none max-h-28 leading-relaxed py-1"
               style={{ height: "auto" }}
               onInput={(e) => {
                 const t = e.currentTarget;

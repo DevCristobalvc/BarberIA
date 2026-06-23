@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
@@ -22,6 +22,16 @@ export const metadata: Metadata = {
     description: "Tu barbería, administrada por IA",
     images: [{ url: "/icon-512.png", width: 512, height: 512 }],
   },
+};
+
+// Viewport separado del metadata — Next.js App Router lo requiere así
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  // No bloqueamos zoom (accesibilidad), pero sí prevenimos el zoom
+  // automático de iOS al enfocar inputs con font-size < 16px
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

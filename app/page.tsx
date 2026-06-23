@@ -37,13 +37,13 @@ export default function LandingPage() {
           Agente IA para barberías
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 max-w-3xl leading-[1.1]">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 max-w-3xl leading-[1.1]">
           Tu barbería,
           <br />
           <span className="text-gold">administrada por IA.</span>
         </h1>
 
-        <p className="text-lg text-[#888888] max-w-xl mb-10 leading-relaxed">
+        <p className="text-base sm:text-lg text-[#888888] max-w-xl mb-10 leading-relaxed">
           SofIA gestiona tus citas por WhatsApp: reserva, cancela, reprograma.
           Nunca más una llamada perdida.
         </p>

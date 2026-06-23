@@ -2,6 +2,7 @@
 
 import { clientsApi } from "@/lib/api";
 import { SHOP_ID } from "@/lib/constants";
+import { EmptyState } from "@/components/ui/empty-state";
 import { useQuery } from "@tanstack/react-query";
 import { Search, Phone, Clock, Loader2 } from "lucide-react";
 import { useState } from "react";
@@ -53,16 +54,15 @@ export default function ClientsPage() {
         </div>
 
         {error ? (
-          <div className="py-12 text-center">
-            <p className="text-sm text-red-400">Error al cargar clientes</p>
-            <p className="text-xs text-[#555555] mt-1">Verifica que el backend esté corriendo</p>
-          </div>
+          <EmptyState type="error" />
         ) : isLoading && !debouncedQuery ? (
           <div className="py-12 text-center text-sm text-[#555555]">Cargando clientes...</div>
         ) : clients.length === 0 ? (
-          <p className="text-center text-sm text-[#555555] py-10">
-            {query ? "No se encontraron clientes" : "Sin clientes registrados aún"}
-          </p>
+          <EmptyState
+            type="empty"
+            title={query ? "Sin resultados" : "Sin clientes aún"}
+            description={query ? `No hay clientes que coincidan con "${query}".` : "Los clientes aparecerán aquí cuando se registren o reserven por WhatsApp."}
+          />
         ) : (
           <div className="divide-y divide-[#1A1A1A]">
             {clients.map((client) => (

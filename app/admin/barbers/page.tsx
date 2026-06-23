@@ -2,6 +2,7 @@
 
 import { barbersApi } from "@/lib/api";
 import { SHOP_ID } from "@/lib/constants";
+import { EmptyState } from "@/components/ui/empty-state";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Plus, Scissors, Calendar, BarChart3, Loader2 } from "lucide-react";
 import { useState } from "react";
@@ -45,9 +46,9 @@ export default function BarbersPage() {
       </div>
 
       {error ? (
-        <div className="text-center py-12">
-          <p className="text-sm text-red-400">Error al cargar barberos</p>
-        </div>
+        <EmptyState type="error" title="No se pudo cargar los barberos" />
+      ) : barbers.length === 0 ? (
+        <EmptyState type="empty" title="Sin barberos registrados" description="Agrega el primer barbero con el botón de arriba." />
       ) : (
         <div className="grid md:grid-cols-3 gap-4">
           {barbers.map((barber) => (

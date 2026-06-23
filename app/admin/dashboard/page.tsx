@@ -2,6 +2,7 @@
 
 import { appointmentsApi } from "@/lib/api";
 import { SHOP_ID } from "@/lib/constants";
+import { EmptyState } from "@/components/ui/empty-state";
 import { formatCurrency } from "@/lib/utils";
 import type { AppointmentWithDetails, AppointmentStatus } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
@@ -100,12 +101,9 @@ export default function DashboardPage() {
         {isLoading ? (
           <div className="py-12 text-center text-sm text-[#555555]">Cargando citas...</div>
         ) : error ? (
-          <div className="py-12 text-center">
-            <p className="text-sm text-red-400">Error al cargar citas</p>
-            <p className="text-xs text-[#555555] mt-1">Verifica que el backend esté corriendo en localhost:8000</p>
-          </div>
+          <EmptyState type="error" />
         ) : active.length === 0 ? (
-          <div className="py-12 text-center text-sm text-[#555555]">Sin citas programadas para hoy</div>
+          <EmptyState type="empty" title="Sin citas hoy" description="No hay citas programadas para hoy. Las reservas por WhatsApp aparecerán aquí automáticamente." />
         ) : (
           <div className="divide-y divide-[#1A1A1A]">
             {active.map((appt) => {
