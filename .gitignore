@@ -54,3 +54,6 @@ next-env.d.ts
 # Skills locales (Supabase, Vercel)
 .agents/
 skills-lock.json
+
+.vercel
+scripts/process-icon.cjs
