@@ -1,7 +1,7 @@
 import { Scissors, MessageCircle, Calendar, Zap, Users, Shield, ChevronRight } from "lucide-react";
 
-const CLIENT_URL = "https://bia-cliente.vercel.app";
-const CRM_URL    = "https://bia-crm.vercel.app/login";
+const CLIENT_URL = "https://cliente-barberia.vercel.app";
+const CRM_URL    = "https://panel-barberia.vercel.app/login";
 const WA_URL     = "https://wa.me/573005412940?text=Hola%2C%20quiero%20empezar%20con%20BarberIA%20para%20mi%20negocio";
 
 export default function LandingPage() {
