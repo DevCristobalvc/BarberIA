@@ -59,16 +59,6 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 lg:justify-start justify-center">
-            <a href={WA_URL} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3.5 bg-gold text-[#0A0A0A] font-bold rounded-xl hover:bg-gold-light transition-all active:scale-[0.98] text-sm w-full sm:w-auto justify-center">
-              <WhatsAppIcon className="w-4 h-4" />
-              Agenda una demo
-            </a>
-            <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3.5 border border-[#2A2A2A] text-[#F5F5F5] font-medium rounded-xl hover:bg-[#1A1A1A] transition-all active:scale-[0.98] text-sm w-full sm:w-auto justify-center">
-              <MessageCircle className="w-4 h-4 text-[#888888]" />
-              Hablar con SofIA gratis
-            </a>
           </div>
           <p className="text-xs text-[#555555] mt-3 lg:text-left text-center">Respondemos en menos de un día.</p>
         </div>
@@ -96,68 +86,67 @@ export default function LandingPage() {
               <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed">
                 La recepcionista de tu barbería. Trabaja 24/7, nunca se cansa y atiende a cada cliente al instante.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-3 mb-8">
                 {[
-                  { title: "Nunca pierdas un cliente",    desc: "SofIA responde al instante, a cualquier hora. Tus clientes siempre obtienen una respuesta." },
-                  { title: "Nunca cruces horarios",       desc: "Antes de confirmar, revisa tu agenda. Cero doble-booking, cero errores." },
-                  { title: "Tu agenda se llena sola",     desc: "Los clientes pueden reservar aunque estés cortando. Tu barbería trabaja aunque tú no estés." },
-                ].map((b, i) => (
-                  <div key={i} className="flex gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  "Nunca pierdas un cliente",
+                  "Nunca cruces horarios",
+                  "Tu agenda se llena sola",
+                ].map((title, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-gold" />
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[#F5F5F5] mb-0.5">{b.title}</p>
-                      <p className="text-xs text-[#888888] leading-relaxed">{b.desc}</p>
-                    </div>
+                    <p className="text-sm font-semibold text-[#F5F5F5]">{title}</p>
                   </div>
                 ))}
               </div>
+              <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-[#0A0A0A] font-bold rounded-xl hover:bg-gold-light transition-all active:scale-[0.98] text-sm">
+                <MessageCircle className="w-4 h-4" />
+                Hablar con SofIA
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Panel: ícono + 3 features ──────────────────────── */}
+      {/* ── Panel: texto izquierda, ícono derecha ──────────── */}
       <section className="py-20 px-6 bg-[#050505] border-t border-[#1A1A1A]">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-            {/* Ícono */}
-            <div className="flex-shrink-0 text-center">
-              <div className="w-52 h-52 rounded-2xl border border-[#2A2A2A] bg-[#111111] flex items-center justify-center mx-auto">
-                <Image src="/icon-512.png" alt="Panel BarberIA" width={100} height={100} className="rounded-xl opacity-90" />
-              </div>
-              <p className="font-semibold mt-3 text-[#F5F5F5]">Panel Admin</p>
-              <p className="text-xs text-[#888888]">Control total desde cualquier lugar</p>
-            </div>
-
-            {/* Features */}
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Features — izquierda */}
             <div className="flex-1">
               <h2 style={H} className="text-2xl sm:text-3xl font-bold mb-2">Un panel para que tú tengas el control</h2>
               <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed">
                 Mientras SofIA trabaja, tú puedes ver tu agenda, tus clientes y todo lo que pasa en tu barbería.
               </p>
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 mb-8">
                 {[
-                  { icon: <Calendar className="w-4 h-4 text-gold" />,     title: "Calendario en tiempo real", desc: "Ve y mueve citas desde cualquier lugar." },
-                  { icon: <Clock className="w-4 h-4 text-gold" />,         title: "Historial de clientes",     desc: "Quién vino, cuándo y qué servicio pidió." },
-                  { icon: <CheckCircle className="w-4 h-4 text-gold" />,   title: "Control total",            desc: "Agrega, edita o cancela citas manualmente." },
+                  { icon: <Calendar className="w-4 h-4 text-gold" />,   title: "Calendario en tiempo real" },
+                  { icon: <Clock className="w-4 h-4 text-gold" />,       title: "Historial de clientes" },
+                  { icon: <CheckCircle className="w-4 h-4 text-gold" />, title: "Control total" },
                 ].map((f, i) => (
-                  <div key={i} className="flex gap-3">
+                  <div key={i} className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
                       {f.icon}
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[#F5F5F5] mb-0.5">{f.title}</p>
-                      <p className="text-xs text-[#888888] leading-relaxed">{f.desc}</p>
-                    </div>
+                    <p className="text-sm font-semibold text-[#F5F5F5]">{f.title}</p>
                   </div>
                 ))}
               </div>
               <a href={CRM_URL} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#2A2A2A] text-[#888888] text-sm rounded-xl hover:bg-[#1A1A1A] hover:text-[#F5F5F5] transition-colors">
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-[#0A0A0A] font-bold rounded-xl hover:bg-gold-light transition-all active:scale-[0.98] text-sm">
                 Ver demo del panel →
               </a>
+            </div>
+
+            {/* Ícono llenando la caja — derecha */}
+            <div className="flex-shrink-0 text-center">
+              <div className="relative w-52 h-52 rounded-2xl overflow-hidden border border-[#2A2A2A] mx-auto">
+                <Image src="/icon-512.png" alt="Panel BarberIA" fill sizes="208px" className="object-cover" />
+              </div>
+              <p className="font-semibold mt-3 text-[#F5F5F5]">Panel Admin</p>
+              <p className="text-xs text-[#888888]">Control total · BIA</p>
             </div>
           </div>
         </div>
