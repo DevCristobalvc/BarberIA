@@ -31,12 +31,16 @@ export function ChatDemo() {
     <div className="w-full max-w-xs mx-auto rounded-3xl overflow-hidden shadow-2xl" style={{ background: "#0A0A0A", border: "1px solid #2A2A2A" }}>
       {/* Header */}
       <div className="px-4 py-3 flex items-center gap-3" style={{ background: "#111111", borderBottom: "1px solid #1A1A1A" }}>
-        <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 border border-[#2A2A2A]">
-          <Image src="/icon-192.png" alt="SofIA" width={36} height={36} className="object-cover" />
+        <div className="relative flex-shrink-0">
+          <div className="w-9 h-9 rounded-full overflow-hidden border border-[#2A2A2A]">
+            <Image src="/sofia-web.png" alt="SofIA" width={36} height={36} className="object-cover object-top" />
+          </div>
+          {/* Punto verde de estado */}
+          <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#111111]" />
         </div>
         <div>
           <p className="text-sm font-semibold text-[#F5F5F5]">SofIA · BIA Barber</p>
-          <p className="text-xs text-emerald-400">En línea</p>
+          <p className="text-xs text-[#888888]">En línea</p>
         </div>
       </div>
 
