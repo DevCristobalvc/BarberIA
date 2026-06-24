@@ -6,7 +6,7 @@ const CLIENT_URL = "https://cliente-barberia.vercel.app";
 const CRM_URL    = "https://panel-barberia.vercel.app/login";
 const WA_URL     = "https://wa.me/573005412940?text=Hola%2C%20quiero%20contratar%20a%20SofIA%20para%20mi%20barber%C3%ADa";
 
-const H  = { fontFamily: "var(--font-syne), sans-serif" };
+const H  = { fontFamily: "var(--font-saira), sans-serif" };
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
