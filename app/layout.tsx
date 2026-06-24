@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Providers } from "./providers";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -18,19 +17,16 @@ export const metadata: Metadata = {
     other: [{ url: "/icon-512.png", sizes: "512x512" }],
   },
   openGraph: {
-    title: "BarberIA",
-    description: "Tu barbería, administrada por IA",
+    title: "BarberIA — Tu barbería, administrada por IA",
+    description: "SofIA gestiona las citas de tu barbería por WhatsApp.",
     images: [{ url: "/icon-512.png", width: 512, height: 512 }],
   },
 };
 
-// Viewport separado del metadata — Next.js App Router lo requiere así
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   minimumScale: 1,
-  // No bloqueamos zoom (accesibilidad), pero sí prevenimos el zoom
-  // automático de iOS al enfocar inputs con font-size < 16px
   viewportFit: "cover",
 };
 
@@ -38,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="es">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-base text-[#F5F5F5]`}>
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );

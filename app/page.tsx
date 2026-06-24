@@ -1,5 +1,7 @@
-import Link from "next/link";
 import { Scissors, MessageCircle, Calendar, Zap, Users, Shield, ChevronRight } from "lucide-react";
+
+const CLIENT_URL = "https://client-barberia.vercel.app";
+const CRM_URL    = "https://crm-barberia-psi.vercel.app/login";
 
 export default function LandingPage() {
   return (
@@ -14,18 +16,22 @@ export default function LandingPage() {
             <span className="text-lg font-semibold tracking-tight">BarberIA</span>
           </div>
           <nav className="flex items-center gap-2">
-            <Link
-              href="/chat"
+            <a
+              href={CLIENT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 text-sm text-[#888888] hover:text-[#F5F5F5] transition-colors rounded-lg hover:bg-[#1A1A1A]"
             >
               Demo
-            </Link>
-            <Link
-              href="/admin/login"
+            </a>
+            <a
+              href={CRM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 text-sm font-medium bg-gold text-[#0A0A0A] rounded-lg hover:bg-gold-light transition-colors"
             >
               Administrar
-            </Link>
+            </a>
           </nav>
         </div>
       </header>
@@ -49,20 +55,24 @@ export default function LandingPage() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-3">
-          <Link
-            href="/chat"
+          <a
+            href={CLIENT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3 bg-gold text-[#0A0A0A] font-semibold rounded-xl hover:bg-gold-light transition-all active:scale-[0.98] text-sm"
           >
             <MessageCircle className="w-4 h-4" />
             Hablar con SofIA
-          </Link>
-          <Link
-            href="/admin/login"
+          </a>
+          <a
+            href={CRM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3 border border-[#2A2A2A] text-[#F5F5F5] font-medium rounded-xl hover:bg-[#1A1A1A] transition-all active:scale-[0.98] text-sm"
           >
             Ver dashboard
             <ChevronRight className="w-4 h-4 text-[#888888]" />
-          </Link>
+          </a>
         </div>
 
         {/* Chat preview */}
@@ -72,7 +82,7 @@ export default function LandingPage() {
               <Scissors className="w-3.5 h-3.5 text-gold" />
             </div>
             <div>
-              <p className="text-sm font-medium">SofIA</p>
+              <p className="text-sm font-medium">SofIA · BIA Barber Studio</p>
               <p className="text-xs text-emerald-400">● En línea</p>
             </div>
           </div>
@@ -97,44 +107,15 @@ export default function LandingPage() {
         </p>
         <div className="grid md:grid-cols-3 gap-5">
           {[
-            {
-              icon: <Zap className="w-5 h-5 text-gold" />,
-              title: "Reservas automáticas",
-              desc: "SofIA atiende a tus clientes las 24 horas. Consulta disponibilidad y confirma citas sin que muevas un dedo.",
-            },
-            {
-              icon: <MessageCircle className="w-5 h-5 text-gold" />,
-              title: "Por WhatsApp",
-              desc: "Tus clientes ya están ahí. Sin apps nuevas, sin formularios. Solo escriben como siempre.",
-            },
-            {
-              icon: <Calendar className="w-5 h-5 text-gold" />,
-              title: "Calendario en tiempo real",
-              desc: "Panel web para ver, crear, mover y cancelar citas. Todo sincronizado al instante.",
-            },
-            {
-              icon: <Users className="w-5 h-5 text-gold" />,
-              title: "Gestión de clientes",
-              desc: "Historial completo: visitas, preferencias, barbero favorito. SofIA los recuerda a todos.",
-            },
-            {
-              icon: <Shield className="w-5 h-5 text-gold" />,
-              title: "Multi-barbero",
-              desc: "Gestiona horarios y servicios por barbero. Bloquea vacaciones sin complicaciones.",
-            },
-            {
-              icon: <Scissors className="w-5 h-5 text-gold" />,
-              title: "Personalizable",
-              desc: "Nombre del asistente, prompt, servicios, precios y horarios configurables.",
-            },
+            { icon: <Zap className="w-5 h-5 text-gold" />,      title: "Reservas automáticas",       desc: "SofIA atiende a tus clientes las 24 horas. Consulta disponibilidad y confirma citas sin que muevas un dedo." },
+            { icon: <MessageCircle className="w-5 h-5 text-gold" />, title: "Por WhatsApp",           desc: "Tus clientes ya están ahí. Sin apps nuevas, sin formularios. Solo escriben como siempre." },
+            { icon: <Calendar className="w-5 h-5 text-gold" />,  title: "Calendario en tiempo real", desc: "Panel web para ver, crear, mover y cancelar citas. Todo sincronizado al instante." },
+            { icon: <Users className="w-5 h-5 text-gold" />,     title: "Gestión de clientes",       desc: "Historial completo: visitas, preferencias, barbero favorito. SofIA los recuerda a todos." },
+            { icon: <Shield className="w-5 h-5 text-gold" />,    title: "Multi-barbero",             desc: "Gestiona horarios y servicios por barbero. Bloquea vacaciones sin complicaciones." },
+            { icon: <Scissors className="w-5 h-5 text-gold" />,  title: "Personalizable",            desc: "Nombre del asistente, prompt, servicios, precios y horarios configurables." },
           ].map((f, i) => (
-            <div
-              key={i}
-              className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-5 hover:border-gold/20 hover:bg-[#111108] transition-all duration-300"
-            >
-              <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
-                {f.icon}
-              </div>
+            <div key={i} className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-5 hover:border-gold/20 hover:bg-[#111108] transition-all duration-300">
+              <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center mb-4">{f.icon}</div>
               <h3 className="text-sm font-semibold mb-2">{f.title}</h3>
               <p className="text-sm text-[#888888] leading-relaxed">{f.desc}</p>
             </div>
@@ -147,22 +128,26 @@ export default function LandingPage() {
         <div className="rounded-2xl border border-gold/20 bg-[#111108] p-10 text-center">
           <h2 className="text-3xl font-bold mb-3">Prueba la demo ahora</h2>
           <p className="text-[#888888] mb-8 max-w-md mx-auto text-sm">
-            Habla con SofIA como lo haría un cliente de tu barbería. Pregunta por servicios, disponibilidad o reserva una cita.
+            Habla con SofIA como lo haría un cliente de BIA Barber Studio. Pregunta por servicios, disponibilidad o reserva una cita.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/chat"
+            <a
+              href={CLIENT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 bg-gold text-[#0A0A0A] font-semibold rounded-xl hover:bg-gold-light transition-all active:scale-[0.98] text-sm"
             >
               <MessageCircle className="w-4 h-4" />
               Hablar con SofIA
-            </Link>
-            <Link
-              href="/admin/login"
+            </a>
+            <a
+              href={CRM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[#2A2A2A] text-[#F5F5F5] font-medium rounded-xl hover:bg-[#1A1A1A] transition-all active:scale-[0.98] text-sm"
             >
               Ver panel de admin
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -176,7 +161,7 @@ export default function LandingPage() {
             </div>
             <span className="text-sm font-medium">BarberIA</span>
           </div>
-          <p className="text-xs text-[#555555]">© 2025 BarberIA · MVP demo</p>
+          <p className="text-xs text-[#555555]">© 2025 BarberIA · Potenciado por SofIA</p>
         </div>
       </footer>
     </div>
