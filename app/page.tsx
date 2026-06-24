@@ -71,22 +71,27 @@ export default function LandingPage() {
       <section className="py-20 px-6 border-t border-[#1A1A1A]">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Foto */}
+            {/* Foto + botón debajo */}
             <div className="flex-shrink-0 text-center">
               <div className="relative w-52 h-52 rounded-2xl overflow-hidden border border-[#2A2A2A] mx-auto">
                 <Image src="/sofia-web.png" alt="SofIA" fill sizes="208px" className="object-cover object-top" />
               </div>
               <p className="font-semibold mt-3 text-[#F5F5F5]">SofIA</p>
-              <p className="text-xs text-[#888888]">Recepcionista virtual · BIA</p>
+              <p className="text-xs text-[#888888] mb-4">La primera empleada digital · BIA</p>
+              <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#2A2A2A] text-[#F5F5F5] text-sm rounded-xl hover:bg-[#1A1A1A] transition-all active:scale-[0.98]">
+                <MessageCircle className="w-4 h-4 text-[#888888]" />
+                Hablar con SofIA
+              </a>
             </div>
 
-            {/* Beneficios */}
+            {/* Beneficios — derecha */}
             <div className="flex-1">
               <h2 style={H} className="text-2xl sm:text-3xl font-bold mb-2">Conoce a SofIA</h2>
               <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed">
-                La recepcionista de tu barbería. Trabaja 24/7, nunca se cansa y atiende a cada cliente al instante.
+                La primera empleada digital para barberías. Trabaja 24/7, nunca se cansa y atiende a cada cliente al instante.
               </p>
-              <div className="space-y-3 mb-8">
+              <div className="space-y-3">
                 {[
                   { icon: <Calendar className="w-4 h-4 text-gold" />,   title: "Nunca pierdas un cliente" },
                   { icon: <Clock className="w-4 h-4 text-gold" />,       title: "Nunca cruces horarios" },
@@ -100,27 +105,35 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
-              <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-[#0A0A0A] font-bold rounded-xl hover:bg-gold-light transition-all active:scale-[0.98] text-sm">
-                <MessageCircle className="w-4 h-4" />
-                Hablar con SofIA
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Panel: texto izquierda, ícono derecha ──────────── */}
+      {/* ── Panel: ícono izquierda, texto derecha ──────────── */}
       <section className="py-20 px-6 bg-[#050505] border-t border-[#1A1A1A]">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Features — izquierda */}
+            {/* Ícono + botón debajo — izquierda */}
+            <div className="flex-shrink-0 text-center">
+              <div className="relative w-52 h-52 rounded-2xl overflow-hidden border border-[#2A2A2A] mx-auto">
+                <Image src="/icon-512.png" alt="Panel BarberIA" fill sizes="208px" className="object-cover" />
+              </div>
+              <p className="font-semibold mt-3 text-[#F5F5F5]">Panel Admin</p>
+              <p className="text-xs text-[#888888] mb-4">Control total · BIA</p>
+              <a href={CRM_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#2A2A2A] text-[#F5F5F5] text-sm rounded-xl hover:bg-[#1A1A1A] transition-all active:scale-[0.98]">
+                Ver demo del panel →
+              </a>
+            </div>
+
+            {/* Texto — derecha (inverso a SofIA) */}
             <div className="flex-1">
               <h2 style={H} className="text-2xl sm:text-3xl font-bold mb-2">Un panel para que tú tengas el control</h2>
               <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed">
                 Mientras SofIA trabaja, tú puedes ver tu agenda, tus clientes y todo lo que pasa en tu barbería.
               </p>
-              <div className="space-y-3 mb-8">
+              <div className="space-y-3">
                 {[
                   { icon: <Calendar className="w-4 h-4 text-gold" />,   title: "Calendario en tiempo real" },
                   { icon: <Clock className="w-4 h-4 text-gold" />,       title: "Historial de clientes" },
@@ -134,19 +147,6 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
-              <a href={CRM_URL} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-[#0A0A0A] font-bold rounded-xl hover:bg-gold-light transition-all active:scale-[0.98] text-sm">
-                Ver demo del panel →
-              </a>
-            </div>
-
-            {/* Ícono llenando la caja — derecha */}
-            <div className="flex-shrink-0 text-center">
-              <div className="relative w-52 h-52 rounded-2xl overflow-hidden border border-[#2A2A2A] mx-auto">
-                <Image src="/icon-512.png" alt="Panel BarberIA" fill sizes="208px" className="object-cover" />
-              </div>
-              <p className="font-semibold mt-3 text-[#F5F5F5]">Panel Admin</p>
-              <p className="text-xs text-[#888888]">Control total · BIA</p>
             </div>
           </div>
         </div>
@@ -160,7 +160,6 @@ export default function LandingPage() {
             <WhatsAppIcon className="w-5 h-5" />
             Agenda una demo
           </a>
-          <p className="text-xs text-[#555555] mt-4">+57 300 541 2940 · Respondemos en menos de un día</p>
         </div>
       </section>
 
@@ -171,7 +170,7 @@ export default function LandingPage() {
             <Image src="/icon-192.png" alt="BarberIA" width={20} height={20} className="rounded-md" />
             <span className="text-sm font-medium">BarberIA</span>
           </div>
-          <p className="text-xs text-[#555555]">El primer empleado digital para barberías · © 2025</p>
+          <p className="text-xs text-[#555555]">La primera empleada digital para barberías · © 2025</p>
         </div>
       </footer>
     </div>
