@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ChatDemo } from "@/components/chat-demo";
-import { Calendar, CheckCircle, Clock, MessageCircle } from "lucide-react";
+import { Calendar, CheckCircle, Clock, MessageCircle, Zap } from "lucide-react";
 
 const CLIENT_URL = "https://cliente-barberia.vercel.app";
 const CRM_URL    = "https://panel-barberia.vercel.app/login";
@@ -27,17 +27,12 @@ export default function LandingPage() {
           </div>
           <nav className="flex items-center gap-2">
             <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
-              className="px-3 py-2 text-sm text-[#888888] hover:text-[#F5F5F5] transition-colors rounded-lg hover:bg-[#1A1A1A] hidden sm:block">
-              Hablar con SofIA
+              className="px-3 py-2 text-sm text-[#888888] hover:text-[#F5F5F5] transition-colors rounded-lg hover:bg-[#1A1A1A]">
+              Demo
             </a>
             <a href={CRM_URL} target="_blank" rel="noopener noreferrer"
-              className="px-3 py-2 text-sm text-[#888888] hover:text-[#F5F5F5] transition-colors rounded-lg hover:bg-[#1A1A1A] hidden sm:block">
+              className="px-3 py-2 text-sm font-medium border border-[#2A2A2A] text-[#F5F5F5] rounded-lg hover:bg-[#1A1A1A] transition-colors">
               Panel admin
-            </a>
-            <a href={WA_URL} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 bg-gold text-[#0A0A0A] text-sm font-semibold rounded-lg hover:bg-gold-light transition-colors">
-              <WhatsAppIcon className="w-3.5 h-3.5" />
-              Contratar
             </a>
           </nav>
         </div>
@@ -45,28 +40,27 @@ export default function LandingPage() {
 
       {/* ── Hero ───────────────────────────────────────────── */}
       <section className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 px-6 pt-24 pb-16 max-w-5xl mx-auto">
-        {/* Copy */}
         <div className="flex-1 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/30 bg-gold/5 text-gold text-xs font-medium mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
             La secretaria con IA para tu barbería
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-5">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-5" style={{ fontFamily: "var(--font-serif)" }}>
             Mientras tú cortas,<br />
-            <span className="text-gold">la IA agenda clientes</span><br />
-            por WhatsApp.
+            <span className="text-gold">SofIA agenda clientes</span><br />
+            por chat.
           </h1>
 
-          <p className="text-base text-[#888888] max-w-md mb-8 leading-relaxed lg:mx-0 mx-auto">
-            SofIA atiende clientes automáticamente, agenda citas y responde preguntas frecuentes. Las 24 horas. Sin que muevas un dedo.
+          <p className="text-base text-[#BBBBBB] max-w-md mb-8 leading-relaxed lg:mx-0 mx-auto">
+            SofIA atiende a tus clientes automáticamente, agenda citas y responde preguntas frecuentes. Las 24 horas, sin que muevas un dedo.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 lg:justify-start justify-center">
             <a href={WA_URL} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3.5 bg-gold text-[#0A0A0A] font-bold rounded-xl hover:bg-gold-light transition-all active:scale-[0.98] text-sm w-full sm:w-auto justify-center">
               <WhatsAppIcon className="w-4 h-4" />
-              Contratar SofIA
+              Agenda una demo
             </a>
             <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3.5 border border-[#2A2A2A] text-[#F5F5F5] font-medium rounded-xl hover:bg-[#1A1A1A] transition-all active:scale-[0.98] text-sm w-full sm:w-auto justify-center">
@@ -74,8 +68,7 @@ export default function LandingPage() {
               Hablar con SofIA gratis
             </a>
           </div>
-
-          <p className="text-xs text-[#555555] mt-4">Sin contratos. Sin configuraciones complicadas.</p>
+          <p className="text-xs text-[#555555] mt-3 lg:text-left text-center">Respondemos en menos de un día.</p>
         </div>
 
         {/* Chat animado */}
@@ -86,144 +79,75 @@ export default function LandingPage() {
 
       {/* ── Conoce a SofIA ─────────────────────────────────── */}
       <section className="py-20 px-6 border-t border-[#1A1A1A]">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="w-20 h-20 rounded-full bg-gold/15 border-2 border-gold/30 flex items-center justify-center mx-auto mb-5 text-4xl">
-            🤖
-          </div>
-          <h2 className="text-3xl font-bold mb-3">Conoce a SofIA</h2>
-          <p className="text-[#888888] text-base mb-8 max-w-md mx-auto">
-            La recepcionista virtual que trabaja para tu barbería 24 horas al día, 7 días a la semana.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-3 max-w-lg mx-auto text-left">
-            {[
-              "Responde WhatsApp en segundos",
-              "Agenda, reprograma y cancela citas",
-              "Recuerda las preferencias de cada cliente",
-              "Funciona mientras la barbería está cerrada",
-              "Nunca se cansa, nunca olvida nada",
-              "Habla como una persona real",
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2.5 text-sm text-[#CCCCCC]">
-                <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" />
-                {item}
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Foto */}
+            <div className="flex-shrink-0">
+              <div className="relative w-52 h-52 rounded-2xl overflow-hidden border border-[#2A2A2A]">
+                <Image src="/sofia-web.png" alt="SofIA" fill sizes="208px" className="object-cover object-top" />
               </div>
-            ))}
+              <div className="mt-3 text-center">
+                <p className="font-semibold text-[#F5F5F5]">SofIA</p>
+                <p className="text-xs text-[#888888]">Recepcionista virtual · BIA</p>
+              </div>
+            </div>
+
+            {/* Info */}
+            <div className="flex-1">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-serif)" }}>Conoce a SofIA</h2>
+              <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed max-w-md">
+                La recepcionista virtual de tu barbería. Trabaja 24/7, nunca se cansa y atiende a cada cliente como si fuera el único.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-2.5">
+                {[
+                  "Responde al instante por chat",
+                  "Agenda, reprograma y cancela citas",
+                  "Consulta tu calendario antes de confirmar",
+                  "Recuerda las preferencias de cada cliente",
+                  "Funciona cuando la barbería está cerrada",
+                  "Habla de forma natural, como una persona real",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2.5 text-sm text-[#CCCCCC]">
+                    <CheckCircle className="w-3.5 h-3.5 text-gold flex-shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── 3 Beneficios ───────────────────────────────────── */}
-      <section className="py-20 px-6 bg-[#050505]">
+      <section className="py-20 px-6 bg-[#050505] border-t border-[#1A1A1A]">
         <div className="max-w-5xl mx-auto">
-          <p className="text-center text-xs font-medium tracking-widest text-[#888888] uppercase mb-12">
-            Lo que SofIA hace por ti
-          </p>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-5">
             {[
               {
-                emoji: "📱",
+                icon: <Zap className="w-5 h-5 text-gold" />,
                 title: "Nunca pierdas un cliente",
-                desc: "SofIA responde inmediatamente, a cualquier hora. Tus clientes siempre obtienen una respuesta.",
+                desc: "SofIA responde al instante, a cualquier hora. Tus clientes siempre obtienen una respuesta.",
               },
               {
-                emoji: "📅",
+                icon: <Calendar className="w-5 h-5 text-gold" />,
                 title: "Nunca cruces horarios",
                 desc: "Antes de confirmar, SofIA revisa tu agenda. Cero doble-booking, cero errores.",
               },
               {
-                emoji: "💰",
-                title: "Llena tu agenda sola",
-                desc: "Los clientes pueden reservar incluso a medianoche. Tu barbería trabaja aunque tú duermas.",
+                icon: <Clock className="w-5 h-5 text-gold" />,
+                title: "Tu agenda se llena sola",
+                desc: "Los clientes pueden reservar aunque estés cortando. Tu barbería trabaja aunque tú no estés.",
               },
             ].map((b, i) => (
-              <div key={i} className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-6 hover:border-gold/25 transition-all">
-                <div className="text-4xl mb-4">{b.emoji}</div>
-                <h3 className="text-base font-semibold mb-2">{b.title}</h3>
-                <p className="text-sm text-[#888888] leading-relaxed">{b.desc}</p>
+              <div key={i} className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-5 hover:border-gold/20 transition-all duration-300">
+                <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
+                  {b.icon}
+                </div>
+                <h3 className="text-sm font-semibold mb-2">{b.title}</h3>
+                <p className="text-xs text-[#888888] leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Storytelling ───────────────────────────────────── */}
-      <section className="py-20 px-6 border-t border-[#1A1A1A]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">
-            Mientras tú haces esto...
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Barbero */}
-            <div className="bg-[#111111] border border-[#2A2A2A] rounded-2xl p-6">
-              <div className="text-5xl mb-4 text-center">✂️</div>
-              <p className="text-center font-semibold mb-4 text-[#F5F5F5]">Tú cortas cabello</p>
-              <p className="text-sm text-[#888888] text-center leading-relaxed">
-                Enfocado en lo que mejor sabes hacer. Sin interrupciones, sin revisar el teléfono.
-              </p>
-            </div>
-
-            {/* SofIA */}
-            <div className="bg-[#111108] border border-gold/20 rounded-2xl p-6">
-              <div className="text-5xl mb-4 text-center">🤖</div>
-              <p className="text-center font-semibold mb-4 text-gold">SofIA trabaja para ti</p>
-              <ul className="space-y-2.5">
-                {[
-                  "Responde WhatsApp al instante",
-                  "Agenda las citas en tu calendario",
-                  "Reprograma sin que te molesten",
-                  "Confirma reservas automáticamente",
-                  "Recuerda a quién le toca mañana",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-[#CCCCCC]">
-                    <span className="w-5 h-5 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <p className="text-[#888888] text-sm mb-2">El resultado:</p>
-            <p className="text-xl font-bold text-gold">Más clientes · Más citas · Más ingresos</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Conversación completa ───────────────────────────── */}
-      <section className="py-20 px-6 bg-[#050505] border-t border-[#1A1A1A]">
-        <div className="max-w-sm mx-auto">
-          <p className="text-center text-xs font-medium tracking-widest text-[#888888] uppercase mb-8">
-            Así trabaja SofIA
-          </p>
-          <div className="bg-[#0E1117] rounded-3xl overflow-hidden border border-[#1A1F2E] shadow-2xl">
-            <div className="bg-[#1A2333] px-4 py-3 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center text-sm font-bold text-gold">S</div>
-              <div>
-                <p className="text-sm font-semibold text-white">SofIA · BIA Barber</p>
-                <p className="text-xs text-emerald-400">● En línea</p>
-              </div>
-            </div>
-            <div className="p-4 space-y-3 bg-[#0A0F1A]">
-              {[
-                { from: "c", text: "Hola, ¿trabajan el sábado?" },
-                { from: "s", text: "¡Hola! Sí, abrimos el sábado de 9am a 8pm 💈\n¿Te gustaría agendar?" },
-                { from: "c", text: "Sí, para un corte. ¿Cuánto vale?" },
-                { from: "s", text: "El Corte Clásico vale $15.000 y dura 30 minutos.\n¿A qué hora te viene bien?\n• 10:00\n• 2:00\n• 4:30" },
-                { from: "c", text: "4:30 perfecto" },
-                { from: "s", text: "✅ Listo, quedaste agendado.\n📅 Sábado 4:30 PM · Corte Clásico\n✂️ Con Carlos\n\nTe esperamos 💈" },
-              ].map((msg, i) => (
-                <div key={i} className={`flex ${msg.from === "c" ? "justify-end" : "justify-start"}`}>
-                  <div className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-line ${msg.from === "c" ? "bg-[#2A5298] text-white rounded-tr-sm" : "bg-[#1E2A3A] text-[#E8EDF2] rounded-tl-sm"}`}>
-                    {msg.text}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="text-center text-xs text-[#555555] mt-4">Esto pasa de forma automática, sin que toques el teléfono.</p>
         </div>
       </section>
 
@@ -231,15 +155,15 @@ export default function LandingPage() {
       <section className="py-20 px-6 border-t border-[#1A1A1A]">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs font-medium tracking-widest text-[#888888] uppercase mb-4">También incluye</p>
-          <h2 className="text-2xl font-bold mb-3">Un panel para que tú tengas el control</h2>
+          <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: "var(--font-serif)" }}>Un panel para que tú tengas el control</h2>
           <p className="text-sm text-[#888888] mb-10 max-w-md mx-auto">
             Mientras SofIA trabaja, tú puedes ver tu agenda, tus clientes y todo lo que pasa en tu barbería.
           </p>
           <div className="grid sm:grid-cols-3 gap-4 text-left">
             {[
-              { icon: <Calendar className="w-4 h-4 text-gold" />,      label: "Calendario en tiempo real",     desc: "Ve y mueve citas desde cualquier lugar." },
-              { icon: <Clock className="w-4 h-4 text-gold" />,          label: "Historial de clientes",          desc: "Quién vino, cuándo, qué servicio pidió." },
-              { icon: <CheckCircle className="w-4 h-4 text-gold" />,    label: "Notificaciones",                 desc: "Entérate de cada cita nueva al instante." },
+              { icon: <Calendar className="w-4 h-4 text-gold" />, label: "Calendario en tiempo real",  desc: "Ve y mueve citas desde cualquier lugar." },
+              { icon: <Clock className="w-4 h-4 text-gold" />,    label: "Historial de clientes",      desc: "Quién vino, cuándo y qué servicio pidió." },
+              { icon: <CheckCircle className="w-4 h-4 text-gold" />, label: "Control total",           desc: "Agrega, edita o cancela citas manualmente." },
             ].map((f, i) => (
               <div key={i} className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-4">
                 <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center mb-3">{f.icon}</div>
@@ -250,7 +174,7 @@ export default function LandingPage() {
           </div>
           <a href={CRM_URL} target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 border border-[#2A2A2A] text-[#888888] text-sm rounded-xl hover:bg-[#1A1A1A] hover:text-[#F5F5F5] transition-colors">
-            Ver demo del panel →
+            Ver demo del panel
           </a>
         </div>
       </section>
@@ -258,19 +182,19 @@ export default function LandingPage() {
       {/* ── CTA final ──────────────────────────────────────── */}
       <section className="py-20 px-6 bg-[#050505] border-t border-[#1A1A1A]">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Tu barbería necesita<br />
-            <span className="text-gold">esta secretaria.</span>
+            <span className="text-gold italic">esta secretaria.</span>
           </h2>
-          <p className="text-[#888888] text-base mb-8">
-            Escríbenos por WhatsApp y configuramos todo. En menos de un día, SofIA ya está respondiendo por ti.
+          <p className="text-[#AAAAAA] text-base mb-8 max-w-md mx-auto">
+            Escríbenos y configuramos todo. En menos de un día, SofIA ya está atendiendo por ti.
           </p>
-          <a href={WA_URL} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-[#0A0A0A] font-bold rounded-2xl hover:bg-gold-light transition-all active:scale-[0.98] text-base">
-            <WhatsAppIcon className="w-5 h-5" />
-            Contratar SofIA ahora
+          <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 border border-[#2A2A2A] text-[#F5F5F5] font-semibold rounded-2xl hover:bg-[#1A1A1A] transition-all active:scale-[0.98] text-base">
+            <MessageCircle className="w-5 h-5 text-gold" />
+            Hablar con SofIA ahora
           </a>
-          <p className="text-xs text-[#555555] mt-4">+57 300 541 2940 · Respuesta inmediata</p>
+          <p className="text-xs text-[#555555] mt-4">Es gratis · Sin registros</p>
         </div>
       </section>
 
@@ -281,9 +205,7 @@ export default function LandingPage() {
             <Image src="/icon-192.png" alt="BarberIA" width={20} height={20} className="rounded-md" />
             <span className="text-sm font-medium">BarberIA</span>
           </div>
-          <p className="text-xs text-[#555555]">
-            El primer empleado digital para barberías · © 2025
-          </p>
+          <p className="text-xs text-[#555555]">El primer empleado digital para barberías · © 2025</p>
         </div>
       </footer>
 

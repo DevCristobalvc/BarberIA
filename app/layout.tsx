@@ -1,24 +1,33 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+});
 
 export const metadata: Metadata = {
-  title: "BarberIA — Tu barbería, administrada por IA",
-  description: "SofIA gestiona las citas de tu barbería por WhatsApp. Sin llamadas perdidas, sin complicaciones.",
+  title: "BarberIA — La secretaria con IA para tu barbería",
+  description: "SofIA atiende clientes automáticamente, agenda citas y responde por chat las 24 horas.",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-    other: [{ url: "/icon-512.png", sizes: "512x512" }],
   },
   openGraph: {
-    title: "BarberIA — Tu barbería, administrada por IA",
-    description: "SofIA gestiona las citas de tu barbería por WhatsApp.",
+    title: "BarberIA — La secretaria con IA para tu barbería",
+    description: "SofIA atiende clientes automáticamente, agenda citas y responde por chat las 24 horas.",
     images: [{ url: "/icon-512.png", width: 512, height: 512 }],
   },
 };
@@ -32,8 +41,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-base text-[#F5F5F5]`}>
+    <html lang="es" className={`${jakarta.variable} ${instrumentSerif.variable}`}>
+      <body className="antialiased bg-[#0A0A0A] text-[#F5F5F5]" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
         {children}
       </body>
     </html>
