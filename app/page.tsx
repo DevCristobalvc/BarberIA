@@ -6,7 +6,7 @@ const CLIENT_URL = "https://cliente-barberia.vercel.app";
 const CRM_URL    = "https://panel-barberia.vercel.app/login";
 const WA_URL     = "https://wa.me/573005412940?text=Hola%2C%20quiero%20contratar%20a%20SofIA%20para%20mi%20barber%C3%ADa";
 
-const H  = { fontFamily: "var(--font-saira), sans-serif" };
+const H  = { fontFamily: "var(--font-inter), sans-serif" };
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -67,28 +67,6 @@ export default function LandingPage() {
 
         <div className="flex-shrink-0 w-full max-w-xs">
           <ChatDemo />
-        </div>
-      </section>
-
-      {/* ── Dolor ──────────────────────────────────────────── */}
-      <section className="py-20 px-6 border-t border-[#1A1A1A] bg-[#050505]">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 style={H} className="text-2xl sm:text-3xl font-bold mb-6">
-            Mientras atiendes un cliente,<br />
-            <span className="text-[#888888]">llegan tres mensajes más.</span>
-          </h2>
-          <p className="text-[#888888] text-base leading-relaxed mb-8">
-            Algunos preguntan por disponibilidad. Otros quieren agendar. Y tú no puedes responder.<br />
-            <strong className="text-[#CCCCCC]">Esos clientes se van con la barbería que sí les contestó.</strong>
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm">
-            {["Solicitudes sin respuesta", "Citas que no se confirman", "Clientes que no vuelven"].map((p, i) => (
-              <div key={i} className="flex items-center gap-2 text-[#666666]">
-                <span className="w-4 h-4 rounded-full border border-[#333333] flex items-center justify-center text-[10px]">✗</span>
-                {p}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -162,23 +140,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Métricas ───────────────────────────────────────── */}
-      <section className="py-16 px-6 border-t border-[#1A1A1A]">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {[
-            { value: "24/7",    label: "Disponible" },
-            { value: "< 10s",  label: "Tiempo de respuesta" },
-            { value: "0",      label: "Cruces de horario" },
-            { value: "100%",   label: "Agenda actualizada" },
-          ].map((m, i) => (
-            <div key={i} className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-5 text-center">
-              <p style={H} className="text-3xl font-bold text-gold mb-1">{m.value}</p>
-              <p className="text-xs text-[#888888]">{m.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── Panel administración ───────────────────────────── */}
       <section className="py-20 px-6 bg-[#050505] border-t border-[#1A1A1A]">
         <div className="max-w-4xl mx-auto">
@@ -200,7 +161,7 @@ export default function LandingPage() {
 
             {/* Texto — derecha */}
             <div className="flex-1">
-              <h2 style={H} className="text-2xl sm:text-3xl font-bold mb-2">Un panel para que tú tengas el control</h2>
+              <h2 style={H} className="text-2xl sm:text-3xl font-bold mb-2">Un panel para que tengas el control</h2>
               <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed">
                 Mientras SofIA trabaja, tú puedes ver tu agenda, tus clientes y todo lo que pasa en tu barbería.
               </p>
