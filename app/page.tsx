@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { ChatDemo } from "@/components/chat-demo";
-import { Calendar, CheckCircle, Clock, MessageCircle, Zap } from "lucide-react";
+import { Calendar, CheckCircle, Clock, MessageCircle } from "lucide-react";
 
 const CLIENT_URL = "https://cliente-barberia.vercel.app";
 const CRM_URL    = "https://panel-barberia.vercel.app/login";
 const WA_URL     = "https://wa.me/573005412940?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20SofIA%20para%20mi%20barber%C3%ADa";
+
+const H = { fontFamily: "var(--font-syne), sans-serif" };
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -23,7 +25,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <Image src="/icon-192.png" alt="BarberIA" width={30} height={30} className="rounded-lg" />
-            <span className="text-base font-semibold tracking-tight">BarberIA</span>
+            <span className="text-base font-semibold">BarberIA</span>
           </div>
           <nav className="flex items-center gap-2">
             <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
@@ -46,7 +48,7 @@ export default function LandingPage() {
             La secretaria con IA para tu barbería
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-5" style={{ fontFamily: "var(--font-serif)" }}>
+          <h1 style={H} className="text-4xl sm:text-5xl font-bold leading-[1.1] mb-5">
             Mientras tú cortas,<br />
             <span className="text-gold">SofIA agenda clientes</span><br />
             por chat.
@@ -70,46 +72,44 @@ export default function LandingPage() {
           </div>
           <p className="text-xs text-[#555555] mt-3 lg:text-left text-center">Respondemos en menos de un día.</p>
         </div>
-
-        {/* Chat animado */}
         <div className="flex-shrink-0 w-full max-w-xs">
           <ChatDemo />
         </div>
       </section>
 
-      {/* ── Conoce a SofIA ─────────────────────────────────── */}
+      {/* ── SofIA: foto + 3 beneficios ─────────────────────── */}
       <section className="py-20 px-6 border-t border-[#1A1A1A]">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Foto */}
-            <div className="flex-shrink-0">
-              <div className="relative w-52 h-52 rounded-2xl overflow-hidden border border-[#2A2A2A]">
+            <div className="flex-shrink-0 text-center">
+              <div className="relative w-52 h-52 rounded-2xl overflow-hidden border border-[#2A2A2A] mx-auto">
                 <Image src="/sofia-web.png" alt="SofIA" fill sizes="208px" className="object-cover object-top" />
               </div>
-              <div className="mt-3 text-center">
-                <p className="font-semibold text-[#F5F5F5]">SofIA</p>
-                <p className="text-xs text-[#888888]">Recepcionista virtual · BIA</p>
-              </div>
+              <p className="font-semibold mt-3 text-[#F5F5F5]">SofIA</p>
+              <p className="text-xs text-[#888888]">Recepcionista virtual · BIA</p>
             </div>
 
-            {/* Info */}
+            {/* Beneficios */}
             <div className="flex-1">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-3" style={{ fontFamily: "var(--font-serif)" }}>Conoce a SofIA</h2>
-              <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed max-w-md">
-                La recepcionista virtual de tu barbería. Trabaja 24/7, nunca se cansa y atiende a cada cliente como si fuera el único.
+              <h2 style={H} className="text-2xl sm:text-3xl font-bold mb-2">Conoce a SofIA</h2>
+              <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed">
+                La recepcionista de tu barbería. Trabaja 24/7, nunca se cansa y atiende a cada cliente al instante.
               </p>
-              <div className="grid sm:grid-cols-2 gap-2.5">
+              <div className="space-y-4">
                 {[
-                  "Responde al instante por chat",
-                  "Agenda, reprograma y cancela citas",
-                  "Consulta tu calendario antes de confirmar",
-                  "Recuerda las preferencias de cada cliente",
-                  "Funciona cuando la barbería está cerrada",
-                  "Habla de forma natural, como una persona real",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2.5 text-sm text-[#CCCCCC]">
-                    <CheckCircle className="w-3.5 h-3.5 text-gold flex-shrink-0" />
-                    {item}
+                  { title: "Nunca pierdas un cliente",    desc: "SofIA responde al instante, a cualquier hora. Tus clientes siempre obtienen una respuesta." },
+                  { title: "Nunca cruces horarios",       desc: "Antes de confirmar, revisa tu agenda. Cero doble-booking, cero errores." },
+                  { title: "Tu agenda se llena sola",     desc: "Los clientes pueden reservar aunque estés cortando. Tu barbería trabaja aunque tú no estés." },
+                ].map((b, i) => (
+                  <div key={i} className="flex gap-3">
+                    <div className="w-5 h-5 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#F5F5F5] mb-0.5">{b.title}</p>
+                      <p className="text-xs text-[#888888] leading-relaxed">{b.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -118,83 +118,60 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── 3 Beneficios ───────────────────────────────────── */}
+      {/* ── Panel: ícono + 3 features ──────────────────────── */}
       <section className="py-20 px-6 bg-[#050505] border-t border-[#1A1A1A]">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-5">
-            {[
-              {
-                icon: <Zap className="w-5 h-5 text-gold" />,
-                title: "Nunca pierdas un cliente",
-                desc: "SofIA responde al instante, a cualquier hora. Tus clientes siempre obtienen una respuesta.",
-              },
-              {
-                icon: <Calendar className="w-5 h-5 text-gold" />,
-                title: "Nunca cruces horarios",
-                desc: "Antes de confirmar, SofIA revisa tu agenda. Cero doble-booking, cero errores.",
-              },
-              {
-                icon: <Clock className="w-5 h-5 text-gold" />,
-                title: "Tu agenda se llena sola",
-                desc: "Los clientes pueden reservar aunque estés cortando. Tu barbería trabaja aunque tú no estés.",
-              },
-            ].map((b, i) => (
-              <div key={i} className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-5 hover:border-gold/20 transition-all duration-300">
-                <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
-                  {b.icon}
-                </div>
-                <h3 className="text-sm font-semibold mb-2">{b.title}</h3>
-                <p className="text-xs text-[#888888] leading-relaxed">{b.desc}</p>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+            {/* Ícono */}
+            <div className="flex-shrink-0 text-center">
+              <div className="w-52 h-52 rounded-2xl border border-[#2A2A2A] bg-[#111111] flex items-center justify-center mx-auto">
+                <Image src="/icon-512.png" alt="Panel BarberIA" width={100} height={100} className="rounded-xl opacity-90" />
               </div>
-            ))}
+              <p className="font-semibold mt-3 text-[#F5F5F5]">Panel Admin</p>
+              <p className="text-xs text-[#888888]">Control total desde cualquier lugar</p>
+            </div>
+
+            {/* Features */}
+            <div className="flex-1">
+              <h2 style={H} className="text-2xl sm:text-3xl font-bold mb-2">Un panel para que tú tengas el control</h2>
+              <p className="text-[#AAAAAA] text-sm mb-6 leading-relaxed">
+                Mientras SofIA trabaja, tú puedes ver tu agenda, tus clientes y todo lo que pasa en tu barbería.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  { icon: <Calendar className="w-4 h-4 text-gold" />,     title: "Calendario en tiempo real", desc: "Ve y mueve citas desde cualquier lugar." },
+                  { icon: <Clock className="w-4 h-4 text-gold" />,         title: "Historial de clientes",     desc: "Quién vino, cuándo y qué servicio pidió." },
+                  { icon: <CheckCircle className="w-4 h-4 text-gold" />,   title: "Control total",            desc: "Agrega, edita o cancela citas manualmente." },
+                ].map((f, i) => (
+                  <div key={i} className="flex gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
+                      {f.icon}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#F5F5F5] mb-0.5">{f.title}</p>
+                      <p className="text-xs text-[#888888] leading-relaxed">{f.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <a href={CRM_URL} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#2A2A2A] text-[#888888] text-sm rounded-xl hover:bg-[#1A1A1A] hover:text-[#F5F5F5] transition-colors">
+                Ver demo del panel →
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Dashboard (secundario) ──────────────────────────── */}
+      {/* ── CTA final — mismo botón del hero ───────────────── */}
       <section className="py-20 px-6 border-t border-[#1A1A1A]">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-medium tracking-widest text-[#888888] uppercase mb-4">También incluye</p>
-          <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: "var(--font-serif)" }}>Un panel para que tú tengas el control</h2>
-          <p className="text-sm text-[#888888] mb-10 max-w-md mx-auto">
-            Mientras SofIA trabaja, tú puedes ver tu agenda, tus clientes y todo lo que pasa en tu barbería.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-4 text-left">
-            {[
-              { icon: <Calendar className="w-4 h-4 text-gold" />, label: "Calendario en tiempo real",  desc: "Ve y mueve citas desde cualquier lugar." },
-              { icon: <Clock className="w-4 h-4 text-gold" />,    label: "Historial de clientes",      desc: "Quién vino, cuándo y qué servicio pidió." },
-              { icon: <CheckCircle className="w-4 h-4 text-gold" />, label: "Control total",           desc: "Agrega, edita o cancela citas manualmente." },
-            ].map((f, i) => (
-              <div key={i} className="bg-[#111111] border border-[#2A2A2A] rounded-xl p-4">
-                <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center mb-3">{f.icon}</div>
-                <p className="text-sm font-semibold mb-1">{f.label}</p>
-                <p className="text-xs text-[#888888]">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-          <a href={CRM_URL} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 border border-[#2A2A2A] text-[#888888] text-sm rounded-xl hover:bg-[#1A1A1A] hover:text-[#F5F5F5] transition-colors">
-            Ver demo del panel
+        <div className="max-w-xl mx-auto text-center">
+          <a href={WA_URL} target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-[#0A0A0A] font-bold rounded-2xl hover:bg-gold-light transition-all active:scale-[0.98] text-base">
+            <WhatsAppIcon className="w-5 h-5" />
+            Agenda una demo
           </a>
-        </div>
-      </section>
-
-      {/* ── CTA final ──────────────────────────────────────── */}
-      <section className="py-20 px-6 bg-[#050505] border-t border-[#1A1A1A]">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-serif)" }}>
-            Tu barbería necesita<br />
-            <span className="text-gold italic">esta secretaria.</span>
-          </h2>
-          <p className="text-[#AAAAAA] text-base mb-8 max-w-md mx-auto">
-            Escríbenos y configuramos todo. En menos de un día, SofIA ya está atendiendo por ti.
-          </p>
-          <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 border border-[#2A2A2A] text-[#F5F5F5] font-semibold rounded-2xl hover:bg-[#1A1A1A] transition-all active:scale-[0.98] text-base">
-            <MessageCircle className="w-5 h-5 text-gold" />
-            Hablar con SofIA ahora
-          </a>
-          <p className="text-xs text-[#555555] mt-4">Es gratis · Sin registros</p>
+          <p className="text-xs text-[#555555] mt-4">+57 300 541 2940 · Respondemos en menos de un día</p>
         </div>
       </section>
 
@@ -208,7 +185,6 @@ export default function LandingPage() {
           <p className="text-xs text-[#555555]">El primer empleado digital para barberías · © 2025</p>
         </div>
       </footer>
-
     </div>
   );
 }

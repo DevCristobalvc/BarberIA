@@ -1,18 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
+import { Plus_Jakarta_Sans, Syne } from "next/font/google";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-serif",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -41,7 +40,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${jakarta.variable} ${instrumentSerif.variable}`}>
+    <html lang="es" className={`${jakarta.variable} ${syne.variable}`}>
       <body className="antialiased bg-[#0A0A0A] text-[#F5F5F5]" style={{ fontFamily: "var(--font-jakarta), sans-serif" }}>
         {children}
       </body>
