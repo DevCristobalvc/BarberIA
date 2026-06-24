@@ -88,15 +88,15 @@ export default function LandingPage() {
               </p>
               <div className="space-y-3 mb-8">
                 {[
-                  "Nunca pierdas un cliente",
-                  "Nunca cruces horarios",
-                  "Tu agenda se llena sola",
-                ].map((title, i) => (
+                  { icon: <Calendar className="w-4 h-4 text-gold" />,   title: "Nunca pierdas un cliente" },
+                  { icon: <Clock className="w-4 h-4 text-gold" />,       title: "Nunca cruces horarios" },
+                  { icon: <CheckCircle className="w-4 h-4 text-gold" />, title: "Tu agenda se llena sola" },
+                ].map((b, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                    <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
+                      {b.icon}
                     </div>
-                    <p className="text-sm font-semibold text-[#F5F5F5]">{title}</p>
+                    <p className="text-sm font-semibold text-[#F5F5F5]">{b.title}</p>
                   </div>
                 ))}
               </div>
